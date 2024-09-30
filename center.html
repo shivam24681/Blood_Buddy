@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Finder - Blood Centers</title>
+    
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+<script>
+    function toggleMenu() {
+        const menu = document.querySelector("#mobile-menu");
+        menu.classList.toggle("hidden");
+    }
+</script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            
+            padding: 20px;
+        }
+       
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            flex-wrap: wrap;
+        }
+
+        .header input[type="text"],
+        .header input[type="search"] {
+            width: 100%;
+            max-width: 300px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .header button {
+            padding: 10px 20px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+            margin-left: 10px;
+        }
+
+        .header button:hover {
+            background-color: #e6e6e6;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-buttons button {
+            padding: 10px 20px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        .filter-buttons button:hover {
+            background-color: #e6e6e6;
+        }
+
+        .card {
+            background-color: white;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .card-content {
+            flex: 1;
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .card-content h3 {
+            margin: 0 0 10px 0;
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .card-content p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .card-content .tags {
+            margin-top: 10px;
+        }
+
+        .card-content .tags span {
+            display: inline-block;
+            background-color: #f2f2f2;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            margin-right: 5px;
+        }
+
+        .card-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-left: auto;
+            flex-basis: 200px;
+        }
+
+        .card-actions button,
+        .card-actions a {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        .card-actions button {
+            background-color: #b62525;
+            color: white;
+        }
+
+        .card-actions button:hover {
+            background-color: #420c0c;
+        }
+
+        .card-actions a {
+            background-color:#b62525;
+            color: white;
+        }
+
+        .card-actions a:hover {
+            background-color: #420c0c;
+        }
+
+        .chat-button {
+            background-color: #b62525;
+            color: white;
+        }
+
+        .chat-button:hover {
+            background-color: #420c0c;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .header input[type="text"],
+            .header input[type="search"] {
+                max-width: 100%;
+            }
+
+            .card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .card-content {
+                margin-left: 0;
+            }
+
+            .card-actions {
+                align-items: center;
+                margin-left: 0;
+                flex-basis: 100%;
+            }
+
+            .card-actions button,
+            .card-actions a {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 10px;
+            }
+
+            .card {
+                padding: 15px;
+            }
+
+            .filter-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .filter-buttons button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        #searchsize{
+            width: 20px;
+        }
+    </style>
+</head>
+<nav class="bg-red-600 p-2">
+    <div class="container mx-auto flex justify-between items-center">
+        <a href="#" class="text-white text-2xl font-bold">BloodBuddy</a>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-4">
+            <a href="home.html" class="text-white hover:text-red-200">Home</a>
+            <a href="submit_donor.php" class="text-white hover:text-red-200">Donor Registration</a>
+            <a href="find_donors.php" class="text-white hover:text-red-200">Find Blood</a>
+            
+            <a href="center.html" class="text-white hover:text-red-200">Blood Center</a>
+            <a href="camps.html" class="text-white hover:text-red-200">Camps</a>
+            <a href="comic.html" class="text-white hover:text-red-200">Comic</a>
+            <a href="contact.html" class="text-white hover:text-red-200">Contact</a>
+        </div>
+        
+        <!-- Mobile Menu Button -->
+        <button class="md:hidden text-white" onclick="toggleMenu()">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden mt-2">
+        <a href="home.html" class="block text-white py-2 px-4 hover:bg-red-700">Home</a>
+        <a href="submit_donor.php" class="block text-white py-2 px-4 hover:bg-red-700">Donor Registration</a>
+        <a href="find_donors.php" class="block text-white py-2 px-4 hover:bg-red-700">Find Blood</a>
+        <a href="center.html" class="block text-white py-2 px-4 hover:bg-red-700">Blood Center</a>
+        <a href="camps.html" class="block text-white py-2 px-4 hover:bg-red-700">Camps</a>
+        <a href="comic.html" class="block text-white py-2 px-4 hover:bg-red-700">Comic</a>
+        <a href="contact.html" class="block text-white py-2 px-4 hover:bg-red-700">Contact</a>
+        
+
+    </div>
+</nav>
+
+
+<div class="container">
+    <div class="header">
+        <div id="searchsize">
+            <!-- <input type="text" id="locationInput" placeholder="Location" value="Nanded"> -->
+            <input list="bloodBanks" id="searchInput" placeholder="Search for Blood Banks" oninput="handleInput()" onkeypress="handleEnter(event)">
+            <datalist id="bloodBanks">
+                <option value="Guru Gobindsinghji Blood Center">
+                <option value="Jijai Blood Centre">
+                    <option value="THE CRESCENT BLOOD BANK">
+                   <option value="Jeevan Adhar Blood Bank">
+            </datalist>
+        </div>
+        <button onclick="searchBloodBanks()">🔍</button>
+    </div>
+
+   
+    <div id="bloodBankList">
+        <!-- Card 1 -->
+        <div class="card">
+            <img src="images/gurubb.jpg" alt="Blood Center">
+            <div class="card-content">
+                <h3>Guru Gobindsinghji Blood Center</h3>
+                <!-- <p><span style="color: #34a853; font-weight: bold;">4.4 ★★★★☆</span> | 131 Ratings</p> -->
+                <p>Shivaji Nagar, Nanded, Nanded</p>
+                <div class="tags">
+                  
+                    <span> <a href="https://maps.app.goo.gl/ioyX1zNGdCov94X67"> Map LInk</a></span>
+                    <span>24 Hours Blood Banks</span>
+                </div>
+            </div>
+            <div class="card-actions">
+                <button>📞 08460477301</button>
+                <a href="#" class="enquiry-button">Send Enquiry</a>
+                
+            </div>
+        </div>
+
+       
+        <div class="card">
+            <img src="images/jijai.jpg" alt="Blood Center">
+            <div class="card-content">
+                <h3>Jijai Blood Centre</h3>
+             
+                <p>Singh Ji Shivaji Nagar, Nanded, Nanded</p>
+                <div class="tags">
+                    <span>Blood Banks</span>
+                    <span><a href="https://g.co/kgs/Hvi5fKy"> Map LInk</a></span>
+                </div>
+            </div>
+            <div class="card-actions">
+                <button>📞 09780245555</button>
+                <a href="#" class="enquiry-button">Send Enquiry</a>
+              
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/jeevanbb.png" alt="Blood Center">
+            <div class="card-content">
+                <h3>Jeevan Adhar Blood Bank</h3>
+                
+                <p>IInd Floor, Narsinha Bharosa Heights, Opp to Ayurvedic college, Near, Doctor Ln Rd, Nanded</p>
+                <div class="tags">
+                    <span>Blood Banks</span>
+                    <span><a href="https://g.co/kgs/Y4JH265"> Map LInk</a></span>
+                </div>
+            </div>
+            <div class="card-actions">
+                <button>📞 09960709074</button>
+                <a href="#" class="enquiry-button">Send Enquiry</a>
+                
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/crescentbb.jpeg" alt="Blood Center">
+            <div class="card-content">
+                <h3>THE CRESCENT BLOOD BANK</h3>
+               
+                <p>Niagara Hotel, Mohammed Ali Road, opp. Itwara Police Station, Hyder Bagh, Dashmesh Nagar, Harsh Nagar, Nanded</p>
+                <div class="tags">
+                    <span>Blood Banks</span>
+                    <span><a href="https://g.co/kgs/Xrv23nz"> Map LInk</a></span>
+                </div>
+            </div>
+            <div class="card-actions">
+                <button>📞 09011304885</button>
+                <a href="#" class="enquiry-button">Send Enquiry</a>
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function handleInput() {
+        // This function is called when the user types in the search box
+        // Here, you could add additional functionality if needed, but the datalist handles most autocomplete features
+    }
+
+    function handleEnter(event) {
+        if (event.key === 'Enter') {
+            searchBloodBanks();
+        }
+    }
+
+    function searchBloodBanks() {
+        const searchInput = document.getElementById('searchInput').value.toLowerCase();
+        const bloodBankList = document.getElementById('bloodBankList');
+        const bloodBanks = bloodBankList.getElementsByClassName('card');
+
+        // Loop through all blood bank cards and move the matching one to the top
+        for (let i = 0; i < bloodBanks.length; i++) {
+            const bloodBankName = bloodBanks[i].querySelector('.card-content h3').innerText.toLowerCase();
+            if (bloodBankName.includes(searchInput)) {
+                bloodBankList.prepend(bloodBanks[i]);
+                break;
+            }
+        }
+    }
+</script>
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Blood Finder. All Rights Reserved.</p>
+            <p>Follow us on:</p>
+            <div class="social-icons">
+                <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="images/twitter.png" alt="Twitter"></a>
+                <a href="#"><img src="images/instagram.png" alt="Instagram"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

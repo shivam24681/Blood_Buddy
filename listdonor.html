@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Finder - Donor List</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            /* padding: 20px; */
+        }
+        #h1L {
+            color: #c0392b;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #c0392b;
+            color: white;
+        }
+    </style>
+</head>
+<header class="bg-red-600 text-white p-4">
+    <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between">
+            <h1 class="text-2xl md:text-3xl font-bold">Blood Buddy</h1>
+            <nav class="hidden md:flex mt-2 space-x-10">
+                <ul class="flex space-x-6">
+                    <li><a href="home.html" class="hover:underline">Home</a></li>
+                    <li><a href="donor.html" class="hover:underline">Donor Registration</a></li>
+                    <li><a href="center.html" class="hover:underline">Blood Center</a></li>
+                    <li><a href="receiver.html" class="hover:underline">Find Blood </a></li>
+                    <li><a href="#" class="hover:underline">Gallery</a></li>
+                    <li><a href="camps.html" class="hover:underline">Camps</a></li>
+                    <li><a href="comic.html" class="hover:underline">Comic</a></li>
+                    <li><a href="contact.html" class="hover:underline">Contact Us</a></li>
+                </ul>
+            </nav>
+            <button id="menu-button" class="md:hidden flex items-center px-3 py-2 border rounded text-white border-white hover:text-gray-200">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden mt-2">
+            <ul class="flex flex-col space-y-4">
+                <li><a href="home.html" class="hover:underline">Home</a></li>
+                <li><a href="donor.html" class="hover:underline">Donor Registration </a></li>
+                <li><a href="center.html" class="hover:underline">Blood Center</a></li>
+                <li><a href="receiver.html" class="hover:underline">Find Blood </a></li>
+                <li><a href="#" class="hover:underline">Gallery</a></li>
+                <li><a href="camps.html" class="hover:underline">Camps</a></li>
+                <li><a href="comic.html" class="hover:underline">Comic</a></li>
+                <li><a href="contact.html" class="hover:underline">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+    <h1 id="h1L">List of Donors</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Age</th>
+                <th>Blood Type</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Location</th>
+                <th>Availability</th>
+            </tr>
+        </thead>
+        <tbody id="donorList">
+            <!-- Donor data will be inserted here -->
+        </tbody>
+    </table>
+
+    <script>
+        // Retrieve donors from localStorage
+        const donors = JSON.parse(localStorage.getItem('donors')) || [];
+
+        const donorList = document.getElementById('donorList');
+
+        // Display each donor in a table row
+        donors.forEach(donor => {
+            const row = document.createElement('tr');
+
+            row.innerHTML = `
+                <td>${donor.fullName}</td>
+                <td>${donor.age}</td>
+                <td>${donor.bloodType}</td>
+                <td>${donor.email}</td>
+                <td>${donor.phone}</td>
+                <td>${donor.location}</td>
+                <td>${donor.availability}</td>
+            `;
+
+            donorList.appendChild(row);
+        });
+            // JavaScript to toggle the mobile menu
+            const menuButton = document.getElementById('menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+    
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        </script>   
+    </script>
+
+</body>
+</html>

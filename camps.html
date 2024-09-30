@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Finder - Camps</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector("#mobile-menu");
+            menu.classList.toggle("hidden");
+        }
+    </script>
+    
+    </head>
+      <body>
+      
+        <header class="bg-red-600 text-white p-4">
+            <div class="container mx-auto px-4">
+                <div class="flex items-center justify-between">
+                    <h1 class="text-2xl md:text-3xl font-bold">Blood Buddy</h1>
+                    <nav class="hidden md:flex mt-2 space-x-10">
+                        <ul class="flex space-x-6">
+                            <li><a href="home.html" class="hover:underline hover:text-white">Home</a></li>
+                            <li><a href="submit_donor.php" class="hover:underline hover:text-white">Donor Registration </a></li>
+                            <li><a href="center.html" class="hover:underline hover:text-white">Blood Center</a></li>
+                            <li><a href="receiver.html" class="hover:underline hover:text-white">Find Blood </a></li>
+                            
+                            <li><a href="camps.html" class="hover:underline hover:text-white">Camps</a></li>
+                            <li><a href="comic.html" class="hover:underline hover:text-white">Comic</a></li>
+                            <li><a href="contact.html" class="hover:underline hover:text-white">Contact Us</a></li>
+                        </ul>
+                    </nav>
+                    <button id="menu-button" class="md:hidden flex items-center px-3 py-2 border rounded text-white border-white hover:text-gray-200">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="md:hidden hidden mt-2">
+                    <ul class="flex flex-col space-y-4">
+                        <li><a href="home.html" class="hover:underline">Home</a></li>
+                        <li><a href="submit_donor.html" class="hover:underline">Donor Registration </a></li>
+                        <li><a href="center.html" class="hover:underline">Blood Center</a></li>
+                        <li><a href="receiver.html" class="hover:underline">Find Blood</a></li>
+                      
+                        <li><a href="camps.html" class="hover:underline">Camps</a></li>
+                        <li><a href="comic.html" class="hover:underline">Comic</a></li>
+                        <li><a href="contact.html" class="hover:underline">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+    <!-- Camps Page Content -->
+     <section class="camps-section">
+        <h2>Upcoming Blood Donation Camps</h2>
+        <p>Join us at our upcoming blood donation camps and help save lives! Below are the details of our upcoming events:</p>
+
+        <table class="camps-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th>Time</th>
+                    <th>Organizer</th>
+                    <th>Register</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>August 25, 2024</td>
+                    <td>Community Center, Downtown</td>
+                    <td>10:00 AM - 2:00 PM</td>
+                    <td>Red Cross</td>
+                    <td><button class="register-btn" onclick="window.location.href= 'donor.html ';">Register Now</button></td>
+                </tr>
+                <tr>
+                    <td>September 10, 2024</td>
+                    <td>City Hall, Uptown</td>
+                    <td>9:00 AM - 1:00 PM</td>
+                    <td>Health Foundation</td>
+                    <td><button class="register-btn" onclick="window.location.href= 'donor.html ';">Register Now</button></a></td>
+                </tr>
+                <tr>
+                    <td>October 5, 2024</td>
+                    <td>University Campus, West Side</td>
+                    <td>11:00 AM - 3:00 PM</td>
+                    <td>Local Volunteers</td>
+                    <td><button class="register-btn" onclick="window.location.href= 'donor.html ';">Register Now</button></td>
+                </tr>
+                <!-- Add more rows as needed -->
+             </tbody>
+        </table>
+    </section> 
+   
+
+   
+
+    <script src="script.js"></script>
+    
+</body>
+</html>

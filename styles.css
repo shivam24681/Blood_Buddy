@@ -1,0 +1,436 @@
+/* Tailwind CSS integration via CDN */
+@import url('https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css');
+
+/* Additional Custom Styles (if needed) */
+
+/* Custom styles for the form */
+form {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* General Body Styling */
+
+   
+
+
+/* Header Styling */
+header {
+    text-align: center;
+    background-color: #d32f2f;
+    color: white;
+    padding: 20px 0;
+    margin-bottom: 10px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+/* Horizontal Navigation Bar Styling */
+.horizontal-nav {
+    background-color: #d32f2f;
+}
+
+.horizontal-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.horizontal-nav ul li {
+    margin: 0 20px;
+    position: relative;
+}
+
+.horizontal-nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2em;
+    padding: 15px 20px;
+    display: block;
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
+
+.horizontal-nav ul li a:hover {
+    color: #ff5252;
+}
+
+/* Horizontal Navigation Bar Animation */
+.horizontal-nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background-color: #ff5252;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.horizontal-nav ul li a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Banner Image Section Styling */
+.banner-image {
+    text-align: center;
+    margin-top: 20px; /* Adjust this margin to control the space between the nav bar and the image */
+}
+
+.banner-image img {
+    width: 100%;
+    height: auto;
+    max-height: 400px; /* Optional: Limit the max height of the image */
+    object-fit: cover; /* Ensures the image covers the entire area */
+    border-radius: 10px; /* Adds rounded corners to the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow for a more attractive look */
+}
+
+/* Home Page Introduction Section Styling */
+.home-section {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.home-section h2 {
+    color: #d32f2f;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.home-section p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.home-section h3 {
+    font-size: 2em;
+    color: #d32f2f;
+    margin-bottom: 10px;
+}
+
+.home-section ul {
+    margin: 20px 0;
+    padding-left: 20px;
+}
+
+.home-section ul li {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+/* Additional Sections Styling */
+.containerK {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.containerK section {
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.containerK section h2 {
+    color: #d32f2f;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.containerK section p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.containerK section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.containerK .additional-info {
+    font-size: 1em;
+    color: #555;
+    margin-top: 10px;
+}
+/* Camps Section Styling */
+.camps-section {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.camps-section h2 {
+    color: #d32f2f;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.camps-section p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Camps Table Styling */
+.camps-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.camps-table th, .camps-table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.camps-table th {
+    background-color: #d32f2f;
+    color: white;
+    font-size: 1.2em;
+}
+
+.camps-table tr:hover {
+    background-color: #f2f2f2;
+}
+
+.register-btn {
+    background-color: #d32f2f;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.register-btn:hover {
+    background-color: #ff5252;
+}
+
+
+/* Footer Section Styling */
+footer {
+    background-color: #d32f2f;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content p {
+    margin: 0;
+    padding: 5px 0;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+    transform: scale(1.2);
+}
+.containerC{
+    width: 80%;
+    margin: 50px auto;
+}
+.contact-box{
+    background: #fff;
+    display: flex;
+}
+.contact-left{
+    flex-basis: 60%;
+    padding: 40px 60px;
+}
+.contact-right{
+    flex-basis: 40%;
+    padding: 40px;
+    background: #d81c1c;
+    color: #fff;
+}
+ /* h1 {
+    color: #c0392b;
+    text-align: center;
+     margin-bottom: 10px;
+} */
+.containerC p{
+    margin-bottom: 40px;
+}
+.input-row{
+   display:flex;
+   justify-content: space-between; 
+   margin-bottom: 20px;
+}
+.input-row .input-group{
+    flex-basis: 80%;
+   position: bottom;
+   display: inline-block;
+   margin-left: 20px;
+  
+  
+
+}
+.id1C{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    padding-bottom: 5px;
+}
+#txt1{
+    width: 100%;
+    border: 1px solid #ccc;
+    outline: none;
+    padding:10px;
+    box-sizing: border-box;
+}
+.labl1{
+    margin-bottom: 6px;
+    display: block;
+    color:#d81c1c;
+}
+#btnC{
+    background: #d81c1c;
+    width: 100px;
+    border:none;
+    outline: none;
+    color:#fff;
+    height:35px;
+    border-radius: 30px;
+    margin-top: 20px;
+    box-shadow: 0px 5px 15px 0px rgba(28,0,181,0.3);
+}
+.contact-left h3{
+    color:#d81c1c;
+    font-weight: 30px;
+    margin-bottom: 30px;
+}
+.contact-right h3{
+    font-weight: 30px;
+    margin-bottom: 30px;  
+}
+tr td:first-child{
+    padding-right: 20px;
+}
+tr td{
+    padding-top: 20px;
+}
+/* Blood Centers Section Styling */
+.blood-centers-section {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.blood-centers-section h2 {
+    color: #d32f2f;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.blood-centers-section p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.center-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.center-item {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    width: 48%;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.center-item:hover {
+    transform: translateY(-5px);
+}
+
+.center-item h3 {
+    color: #d32f2f;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.center-item p {
+    font-size: 1em;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.details-btn {
+    background-color: #d32f2f;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.details-btn:hover {
+    background-color: #ff5252;
+}
+
+iframe{
+    width: 80%;
+    height: 500px;
+    margin-left: 200px;
+    
+} table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #c0392b;
+    color: white;
+}

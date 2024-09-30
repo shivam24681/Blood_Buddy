@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Finder</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            /* padding: 20px; */
+        }
+        #h1F {
+            color: #c0392b;
+            text-align: center;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        #btnre1 {
+            background-color: #c0392b;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        #btnre1:hover {
+            background-color: #e74c3c;
+        }
+    </style>
+</head>
+<header class="bg-red-600 text-white p-4">
+    <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between">
+            <h1 class="text-2xl md:text-3xl font-bold">Blood Buddy</h1>
+            <nav class="hidden md:flex mt-2 space-x-10">
+                <ul class="flex space-x-6">
+                    <li><a href="home.html" class="hover:underline">Home</a></li>
+                    <li><a href="submit_donor.php" class="hover:underline">Donor Registration </a></li>
+                    <li><a href="center.html" class="hover:underline">Blood Center</a></li>
+                    <li><a href="receiver.html" class="hover:underline">Find Blood </a></li>
+                   
+                    <li><a href="camps.html" class="hover:underline">Camps</a></li>
+                    <li><a href="comic.html" class="hover:underline">Comic</a></li>
+                    <li><a href="contact.html" class="hover:underline">Contact Us</a></li>
+                </ul>
+            </nav>
+            <button id="menu-button" class="md:hidden flex items-center px-3 py-2 border rounded text-white border-white hover:text-gray-200">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden mt-2">
+            <ul class="flex flex-col space-y-4">
+                <li><a href="home.html" class="hover:underline">Home</a></li>
+                <li><a href="submit_donor.php" class="hover:underline">Donor Registration </a></li>
+                <li><a href="center.html" class="hover:underline">Blood Center</a></li>
+                <li><a href="receiver.html" class="hover:underline">Find Blood</a></li>
+             
+                <li><a href="camps.html" class="hover:underline">Camps</a></li>
+                <li><a href="comic.html" class="hover:underline">Comic</a></li>
+                <li><a href="contact.html" class="hover:underline">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+    <h1 id="h1F">Find Blood Donors</h1>
+
+    <form id="bloodFinderForm" action="find_donors.php" method="POST">
+        <label for="bloodType">Select Blood Type:</label>
+        <select id="bloodType" name="bloodType" required>
+            <option value="">Choose your blood type</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+        </select>
+    
+        <button id="btnre1" type="submit">Find Donors</button>
+    </form>
+    
+
+    <script>
+        // document.getElementById('bloodFinderForm').addEventListener('submit', function(e) {
+        //     e.preventDefault();
+
+        //     const bloodType = document.getElementById('bloodType').value;
+
+        //     if (bloodType) {
+        //         // Redirect to the page corresponding to the selected blood type
+        //         window.location.href = `${bloodType.replace('+', 'plus').replace('-', 'minus')}.html`;
+        //     }
+        // });                  
+      
+            // JavaScript to toggle the mobile menu
+            const menuButton = document.getElementById('menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+    
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        </script>   
+    </script>
+
+</body>
+</html>
