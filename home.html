@@ -16,10 +16,12 @@
 <script src="https://cdn.tailwindcss.com"></script>
 
 <script>
-    function toggleMenu() {
-        const menu = document.querySelector("#mobile-menu");
-        menu.classList.toggle("hidden");
-    }
+      const menuButton = document.getElementById('menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+    
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
 </script>
 <style>
         body {
